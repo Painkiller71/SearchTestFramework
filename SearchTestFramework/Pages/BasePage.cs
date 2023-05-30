@@ -31,6 +31,13 @@ namespace SearchTestFramework.Pages
             return WaitUntilElementVisible(by);
         }
 
+        protected IWebElement GetElement(By by, int index)
+        {
+            IList<IWebElement> elements = _wait.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(by));
+
+            return elements.ElementAt(index);
+        }
+
         protected void Click(By by)
         {
             GetElement(by).Click();
