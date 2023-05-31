@@ -33,9 +33,7 @@ namespace SearchTestFramework.Pages
 
         protected IWebElement GetElement(By by, int index)
         {
-            IList<IWebElement> elements = _wait.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(by));
-
-            return elements.ElementAt(index);
+            return _wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(by)).ElementAt(index);
         }
 
         protected void Click(By by)
@@ -48,7 +46,7 @@ namespace SearchTestFramework.Pages
             GetElement(by).SendKeys(text);
         }
 
-        public void SendKeys(string key)
+        protected void SendKeys(string key)
         {
             new Actions(_driver).SendKeys(key).Perform();
         }
