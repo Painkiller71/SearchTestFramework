@@ -43,14 +43,9 @@ namespace SearchTestFramework.Pages
             GetElement(by).Click();
         }
 
-        protected void SendKeys(By by, string text, bool clear = false)
+        protected void SendKeys(By by, string text)
         {
-            var element = GetElement(by);
-            if (clear)
-            {
-                element.Clear();
-            }
-            element.SendKeys(text);
+            GetElement(by).SendKeys(text);
         }
 
         public void SendKeys(string key)
