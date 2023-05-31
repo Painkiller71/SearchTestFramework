@@ -16,14 +16,9 @@ namespace SearchTestFramework.Pages
             _wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
         }
 
-        protected void NavigateTo(string url)
+        protected void Click(By by)
         {
-            _driver.Navigate().GoToUrl(url);
-        }
-
-        protected IWebElement WaitUntilElementVisible(By by)
-        {
-            return _wait.Until(ExpectedConditions.ElementIsVisible(by));
+            GetElement(by).Click();
         }
 
         protected IWebElement GetElement(By by)
@@ -36,11 +31,6 @@ namespace SearchTestFramework.Pages
             return _wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(by)).ElementAt(index);
         }
 
-        protected void Click(By by)
-        {
-            GetElement(by).Click();
-        }
-
         protected void SendKeys(By by, string text)
         {
             GetElement(by).SendKeys(text);
@@ -49,6 +39,11 @@ namespace SearchTestFramework.Pages
         protected void SendKeys(string key)
         {
             new Actions(_driver).SendKeys(key).Perform();
+        }
+
+        protected IWebElement WaitUntilElementVisible(By by)
+        {
+            return _wait.Until(ExpectedConditions.ElementIsVisible(by));
         }
     }
 }
