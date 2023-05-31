@@ -13,7 +13,7 @@ namespace SearchTestFramework.Pages
         protected BasePage(IWebDriver driver)
         {
             _driver = driver;
-            _wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            _wait = new WebDriverWait(driver, Constants.Constants.ExplicitWait);
         }
 
         protected void Click(By by)

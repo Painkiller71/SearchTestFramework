@@ -8,14 +8,13 @@ namespace SearchTestFramework.Tests.Tests
     internal abstract class BaseTest
     {
         protected IWebDriver Driver;
-        private readonly string _baseUrl = "https://www.google.com";
 
         [SetUp]
         public void SetUp()
         {
             Driver = new ChromeDriver();
             Driver.Manage().Window.Maximize();
-            Driver.Navigate().GoToUrl(_baseUrl);
+            Driver.Navigate().GoToUrl(Constants.Constants.BaseUrl);
         }
 
         [TearDown]
