@@ -1,6 +1,8 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
+using SearchTestFramework.Models;
+using SearchTestFramework.Util;
 using SeleniumExtras.WaitHelpers;
 
 namespace SearchTestFramework.Pages
@@ -13,8 +15,10 @@ namespace SearchTestFramework.Pages
         protected BasePage(IWebDriver driver)
         {
             _driver = driver;
-            _wait = new WebDriverWait(driver, Constants.Constants.ExplicitWait);
+            _wait = new WebDriverWait(driver, TimeSpan.FromSeconds(SeleniumOptions.TimeoutInSeconds));
         }
+
+        protected static SeleniumOptions SeleniumOptions => ConfigurationManager.GetSeleniumOptions();
 
         protected void Click(By by)
         {
