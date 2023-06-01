@@ -26,7 +26,7 @@ namespace SearchTestFramework.Tests.Tests
 
             // Act
             _homePage.PopulateSearchTextarea(searchText);
-            _homePage.ClickSearchButton();
+            _homePage.ClickSearchButtonFromSuggestions();
             var actualResult = _searchResultsPage.GetSearchResultHeaderText(index);
 
             // Assert
