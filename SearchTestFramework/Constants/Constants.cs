@@ -1,10 +1,8 @@
-﻿using SearchTestFramework.Util;
-
-namespace SearchTestFramework.Constants
+﻿namespace SearchTestFramework.Constants
 {
     internal static class Constants
     {
-        public static readonly string BaseUrl = PropertyReader.GetPropertyValue("baseUrl");
-        public static readonly TimeSpan ExplicitWait = TimeSpan.FromSeconds(int.Parse(PropertyReader.GetPropertyValue("explicitWaitSeconds")));
+        public static readonly string BaseUrl = "https://www.google.com/";
+        public static readonly TimeSpan ExplicitWait = TimeSpan.FromSeconds(10);
     }
 }
